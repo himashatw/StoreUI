@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ItemService from '../Services/ItemService';
+import ItemService from '../../services/ItemService';
 
 class ListItemComponent extends Component{
     constructor(props){

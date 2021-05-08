@@ -1,9 +1,7 @@
-//import logo from './logo.svg';
 import React from 'react';
-import './App.css';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
-import ListItemComponent from './Components/ListItemComponent';
-import AddItemcomponent from './Components/AddItemComponent'
+import ListItemComponent from './Items/ListItemComponent';
+import AddItemcomponent from './Items/AddItemComponent'
 
 function App() {
   return (
