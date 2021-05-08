@@ -13,8 +13,8 @@ class ItemService{
         return axios.delete(item_api_base_uri+'/delete/'+itemId);
     }
 
-    addItem(Items){
-        return axios.post(item_api_base_uri+'/add/'+Items);
+    addItem(item){
+        return axios.post(item_api_base_uri+'/add/'+item);
     }
 }
 
