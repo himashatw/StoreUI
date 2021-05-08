@@ -2,8 +2,8 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
-import ListItemComponent from './components/ListItemComponent';
-import AddItemcomponent from './components/AddItemComponent'
+import ListItemComponent from './Components/ListItemComponent';
+import AddItemcomponent from './Components/AddItemComponent'
 
 function App() {
   return (
