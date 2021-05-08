@@ -1,11 +1,24 @@
 //import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import ListItemComponent from './components/ListItemComponent';
+import AddItemcomponent from './components/AddItemComponent'
 
 function App() {
   return (
-    <div className="App">
-      <ListItemComponent/>
+    <div>
+      <Router>
+        <div className="container">
+          <div className = "container">
+          <Switch>
+            <Route path = "/" exact component = {ListItemComponent}></Route>
+            <Route path = "/items" component = {ListItemComponent}></Route>
+            <Route path = "/additem" component = {AddItemcomponent}></Route>
+          </Switch>
+        </div>
+        </div>
+      </Router>
     </div>
   );
 }
