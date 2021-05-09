@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ItemService from '../../services/ItemService';
 
+
 class ListItemComponent extends Component{
     constructor(props){
         super(props)
@@ -10,6 +11,7 @@ class ListItemComponent extends Component{
         }
         this.deleteItem = this.deleteItem.bind(this);
         this.addItem = this.addItem.bind(this);
+        //this.updateItem = this.updateItem(this);
     }
 
     deleteItem(id){
@@ -18,6 +20,12 @@ class ListItemComponent extends Component{
                 items:this.state.items.filter(item => item.itemId !== id)
             })
         })
+    }
+
+    updateItem(id){
+    //     //<Link to ={`/updateItem/${itemId}`}>
+        this.props.history.push(`/updateItem/${id}`);
+    //     //</Link>
     }
 
     componentDidMount(){
@@ -34,16 +42,17 @@ class ListItemComponent extends Component{
        return (
         <div>
             <h2 className="text-center">Item Details</h2>
-            <div className="col-2">
+            <div>
                 <button className="btn btn-primary" onClick ={this.addItem}>Add Item</button>
             </div>
             <br></br>
             <div className="row"> 
-            <table className ="table table-striped table-bordered">
+            <table className="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <td>Item Id</td>
                         <td>Item Name</td>
+                        <td>Item Category</td>
                         <td>Item Quantity</td>
                         <td>Item Price</td>
                         <td>Action</td>
@@ -56,10 +65,11 @@ class ListItemComponent extends Component{
                             <tr key = {items.itemId}>
                                 <td>{items.itemId}</td>
                                 <td>{items.itemName}</td>
+                                <td>{items.itemCatagory}</td>
                                 <td>{items.qty}</td>
                                 <td>{items.itemPrice}</td>
                                 <td>
-                                    <button className="btn btn-info">Update</button>
+                                    <button className="btn btn-info" onClick={ () => this.updateItem(items.itemId)}>Update</button> 
                                     <button style={{marginLeft: "10px"}} onClick={ () => this.deleteItem(items.itemId)} className="btn btn-danger">Delete</button>
                                     
                                 </td>

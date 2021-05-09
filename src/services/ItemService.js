@@ -14,8 +14,17 @@ class ItemService{
     }
 
     addItem(item){
-        return axios.post(item_api_base_uri+'/add/'+item);
+        return axios.post(item_api_base_uri+'/add/',item);
     }
+
+    getItemById(itemId){
+        return axios.get(item_api_base_uri+'/'+itemId);
+    }
+
+    updateItem(itemUpdateResource,itemId){
+         return axios.put(item_api_base_uri+'/'+itemId,itemUpdateResource);
+    }
+
 }
 
 export default new ItemService();
