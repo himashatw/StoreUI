@@ -16,6 +16,7 @@ class AddItemComponent extends Component{
         }
         this.changeItemIdHandler = this.changeItemIdHandler.bind(this);
         this.changeItemNameHandler = this.changeItemNameHandler.bind(this);
+        this.changeUrlHandler = this.changeUrlHandler.bind(this);
         this.changeItemCategoryHandler = this.changeItemCategoryHandler.bind(this);
         this.changeItemQtyHandler = this.changeItemQtyHandler.bind(this);
         this.changeItemPriceHandler = this.changeItemPriceHandler.bind(this);
