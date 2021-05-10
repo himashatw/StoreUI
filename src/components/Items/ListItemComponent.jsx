@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ItemService from '../../services/ItemService';
 
-
 class ListItemComponent extends Component{
     constructor(props){
         super(props)
@@ -11,21 +10,21 @@ class ListItemComponent extends Component{
         }
         this.deleteItem = this.deleteItem.bind(this);
         this.addItem = this.addItem.bind(this);
-        //this.updateItem = this.updateItem(this);
+        this.updateItem = this.updateItem.bind(this);
     }
 
     deleteItem(id){
         ItemService.deleteItem(id).then(res=>{
             this.setState({
                 items:this.state.items.filter(item => item.itemId !== id)
-            })
-        })
+            });
+        });
     }
 
     updateItem(id){
-    //     //<Link to ={`/updateItem/${itemId}`}>
-        this.props.history.push(`/updateItem/${id}`);
-    //     //</Link>
+
+     this.props.history.push(`/updateItem/${id}`); 
+  
     }
 
     componentDidMount(){
@@ -44,6 +43,8 @@ class ListItemComponent extends Component{
             <h2 className="text-center">Item Details</h2>
             <div>
                 <button className="btn btn-primary" onClick ={this.addItem}>Add Item</button>
+                <input type ="text" name="itemName" placeholder="Search ..." className="col-2" style={{marginLeft: "900px"}}/>
+                {/* <button className="btn btn-secondary">Search</button> */}
             </div>
             <br></br>
             <div className="row"> 
@@ -52,6 +53,7 @@ class ListItemComponent extends Component{
                     <tr>
                         <td>Item Id</td>
                         <td>Item Name</td>
+                        <td>Item Image</td>
                         <td>Item Category</td>
                         <td>Item Quantity</td>
                         <td>Item Price</td>
@@ -65,6 +67,7 @@ class ListItemComponent extends Component{
                             <tr key = {items.itemId}>
                                 <td>{items.itemId}</td>
                                 <td>{items.itemName}</td>
+                                <td><img src={items.url} alt="invalid" className="rounded" style={{width: "200px",height:"200px"}}/></td>
                                 <td>{items.itemCatagory}</td>
                                 <td>{items.qty}</td>
                                 <td>{items.itemPrice}</td>

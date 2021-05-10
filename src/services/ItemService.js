@@ -25,6 +25,10 @@ class ItemService{
          return axios.put(item_api_base_uri+'/'+itemId,itemUpdateResource);
     }
 
+    searchItem(itemName){
+        return axios.get(item_api_base_uri+'/search/'+itemName);
+    }
+
 }
 
 export default new ItemService();

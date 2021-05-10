@@ -9,6 +9,7 @@ class AddItemComponent extends Component{
         this.state = {
             itemId : '',
             itemName : '',
+            url:'',
             itemCatagory : '',
             qty : '',
             itemPrice : ''
@@ -26,6 +27,7 @@ class AddItemComponent extends Component{
         const item = {
             itemId: this.state.itemId, 
             itemName: this.state.itemName,
+            url:this.state.url,
             itemCatagory: this.state.itemCatagory,
             qty: this.state.qty,
             itemPrice:this.state.itemPrice
@@ -43,6 +45,10 @@ class AddItemComponent extends Component{
     
     changeItemNameHandler = (event) =>{
         this.setState({itemName:event.target.value});
+    }
+
+    changeUrlHandler = (event) =>{
+        this.setState({url:event.target.value});
     }
 
     changeItemCategoryHandler = (event) =>{
@@ -77,6 +83,11 @@ class AddItemComponent extends Component{
                                             <label> Item Name: </label>
                                             <input placeholder="Item Name" name="itemName" className="form-control" 
                                             value={this.state.itemName} onChange={this.changeItemNameHandler}/>
+                                        </div>
+                                        <div className = "form-group">
+                                            <label> Item Image: </label>
+                                            <input placeholder="Image Url" name="url" className="form-control" 
+                                            value={this.state.url} onChange={this.changeUrlHandler}/>
                                         </div>
                                         <div className = "form-group">
                                             <label> Item Category: </label>
